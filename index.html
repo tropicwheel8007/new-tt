@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -14,9 +15,9 @@
 }
 
 :root {
-    --glass: rgba(255, 255, 255, 0.12);
-    --glass-border: rgba(255, 255, 255, 0.22);
-    --text: #ffffff;
+    --glass: rgba(255,255,255,.12);
+    --glass-border: rgba(255,255,255,.22);
+    --text: #fff;
     --muted: #dce8ff;
     --accent: #ffb347;
 }
@@ -25,14 +26,14 @@ body {
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     color: var(--text);
-    background: linear-gradient(135deg, #07162e, #123b69, #432c70);
+    background: linear-gradient(135deg,#07162e,#123b69,#432c70);
     background-size: 250% 250%;
     animation: backgroundMove 16s ease infinite;
     overflow-x: hidden;
 }
 
 @keyframes backgroundMove {
-    0%, 100% { background-position: 0% 50%; }
+    0%,100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
 }
 
@@ -62,7 +63,7 @@ header {
 .logo {
     font-size: 21px;
     font-weight: 800;
-    letter-spacing: 0.5px;
+    letter-spacing: .5px;
 }
 
 .menu-button {
@@ -75,11 +76,11 @@ header {
     backdrop-filter: blur(12px);
     font-size: 24px;
     cursor: pointer;
-    transition: 0.25s;
+    transition: .25s;
 }
 
 .menu-button:hover {
-    background: rgba(255,255,255,0.22);
+    background: rgba(255,255,255,.22);
     transform: scale(1.04);
 }
 
@@ -104,15 +105,15 @@ nav button {
     text-align: left;
     border: 1px solid var(--glass-border);
     border-radius: 14px;
-    background: rgba(255,255,255,0.10);
+    background: rgba(255,255,255,.10);
     cursor: pointer;
-    transition: 0.2s;
+    transition: .2s;
 }
 
 nav button:hover,
 nav button.active {
-    background: rgba(255,255,255,0.23);
-    border-color: rgba(255,255,255,0.45);
+    background: rgba(255,255,255,.23);
+    border-color: rgba(255,255,255,.45);
 }
 
 main {
@@ -122,7 +123,7 @@ main {
 
 .tab {
     display: none;
-    animation: appear 0.4s ease;
+    animation: appear .4s ease;
 }
 
 .tab.active {
@@ -140,7 +141,7 @@ main {
     border: 1px solid var(--glass-border);
     border-radius: 24px;
     background: var(--glass);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.13);
+    box-shadow: 0 12px 40px rgba(0,0,0,.13);
     backdrop-filter: blur(18px);
 }
 
@@ -150,7 +151,7 @@ main {
 }
 
 h1 {
-    font-size: clamp(25px, 5vw, 38px);
+    font-size: clamp(25px,5vw,38px);
     line-height: 1.3;
     margin-bottom: 12px;
 }
@@ -188,9 +189,9 @@ p {
     place-items: center;
     flex-shrink: 0;
     border-radius: 23px;
-    background: linear-gradient(135deg, #ffcf76, #ff8738);
+    background: linear-gradient(135deg,#ffcf76,#ff8738);
     font-size: 42px;
-    box-shadow: 0 8px 25px rgba(255,145,45,0.25);
+    box-shadow: 0 8px 25px rgba(255,145,45,.25);
 }
 
 .profile-info p {
@@ -203,15 +204,15 @@ p {
 
 .stat-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2,minmax(0,1fr));
     gap: 12px;
 }
 
 .stat {
     padding: 18px;
-    border: 1px solid rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,.14);
     border-radius: 18px;
-    background: rgba(0,0,0,0.10);
+    background: rgba(0,0,0,.10);
 }
 
 .stat-label {
@@ -221,7 +222,7 @@ p {
 }
 
 .stat-value {
-    font-size: clamp(17px, 3vw, 23px);
+    font-size: clamp(17px,3vw,23px);
     font-weight: 800;
     overflow-wrap: anywhere;
 }
@@ -258,9 +259,9 @@ p {
     text-decoration: none;
     border: none;
     border-radius: 14px;
-    background: linear-gradient(135deg, #ffda96, #ffad50);
+    background: linear-gradient(135deg,#ffda96,#ffad50);
     cursor: pointer;
-    transition: transform 0.2s, filter 0.2s;
+    transition: transform .2s,filter .2s;
 }
 
 .button:hover {
@@ -271,7 +272,7 @@ p {
 .button.secondary {
     color: white;
     border: 1px solid var(--glass-border);
-    background: rgba(255,255,255,0.12);
+    background: rgba(255,255,255,.12);
 }
 
 .progress-track {
@@ -279,17 +280,17 @@ p {
     margin: 16px 0 10px;
     overflow: hidden;
     border-radius: 20px;
-    background: rgba(0,0,0,0.23);
-    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(0,0,0,.23);
+    border: 1px solid rgba(255,255,255,.10);
 }
 
 .progress-fill {
     height: 100%;
-    width: 0.37%;
+    width: .37%;
     min-width: 5px;
     border-radius: inherit;
-    background: linear-gradient(90deg, #ff9e40, #ffe0a3);
-    box-shadow: 0 0 14px rgba(255,177,77,0.5);
+    background: linear-gradient(90deg,#ff9e40,#ffe0a3);
+    box-shadow: 0 0 14px rgba(255,177,77,.5);
 }
 
 .progress-info {
@@ -354,7 +355,7 @@ p {
 
 .details-content.open {
     display: block;
-    animation: appear 0.3s ease;
+    animation: appear .3s ease;
 }
 
 .details-content p + p {
@@ -373,20 +374,122 @@ p {
     align-items: flex-start;
     gap: 12px;
     padding: 14px;
-    border: 1px solid rgba(255,255,255,0.13);
+    border: 1px solid rgba(255,255,255,.13);
     border-radius: 15px;
-    background: rgba(0,0,0,0.10);
+    background: rgba(0,0,0,.10);
     color: var(--muted);
     line-height: 1.6;
 }
 
-.earning-list .method-icon {
+.method-icon {
     font-size: 23px;
     flex-shrink: 0;
 }
 
 .earning-list strong {
     color: white;
+}
+
+/* Валюты баланса */
+.currency-grid {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.currency-item {
+    min-width: 0;
+    padding: 15px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 16px;
+    background: rgba(0,0,0,.11);
+    transition: transform .2s,background .2s;
+}
+
+.currency-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,.12);
+}
+
+.currency-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: rgba(255,255,255,.12);
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.currency-item strong {
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.currency-item small {
+    font-size: 11px;
+    color: #cbdafa;
+}
+
+/* Способы вывода */
+.withdraw-grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 11px;
+    margin-top: 18px;
+}
+
+.withdraw-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    padding: 13px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 16px;
+    background: rgba(0,0,0,.11);
+    transition: transform .2s,background .2s;
+}
+
+.withdraw-item:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,.12);
+}
+
+.app-avatar {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    background: linear-gradient(145deg,rgba(255,255,255,.20),rgba(255,255,255,.07));
+    border: 1px solid rgba(255,255,255,.16);
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.app-name {
+    color: white;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.app-description {
+    color: #cbdafa;
+    font-size: 11px;
+    line-height: 1.4;
+    margin-top: 3px;
 }
 
 .store-list {
@@ -401,7 +504,7 @@ p {
     padding: 9px 12px;
     border: 1px solid var(--glass-border);
     border-radius: 12px;
-    background: rgba(255,255,255,0.08);
+    background: rgba(255,255,255,.08);
     font-size: 13px;
     color: white;
 }
@@ -492,6 +595,14 @@ footer {
     .telegram-card .button {
         width: 100%;
     }
+
+    .currency-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+
+    .withdraw-grid {
+        grid-template-columns: 1fr;
+    }
 }
 </style>
 </head>
@@ -571,7 +682,6 @@ footer {
             </div>
         </div>
 
-        <!-- TELEGRAM-КАНАЛ В ПЕРВОЙ ВКЛАДКЕ -->
         <div class="card telegram-card">
             <div class="telegram-icon">✈️</div>
             <div class="telegram-content">
@@ -592,10 +702,12 @@ footer {
         <div class="card hero">
             <h1>🍊 О заработке в AdCoin</h1>
             <p>
-                Узнай больше о приложении и возможностях заработка.
+                Узнай больше о приложении, валютах баланса
+                и возможностях вывода.
             </p>
         </div>
 
+        <!-- СПОСОБЫ ЗАРАБОТКА -->
         <div class="card">
             <button class="details-toggle" id="adcoinToggle"
                 aria-expanded="false" aria-controls="adcoinDetails">
@@ -659,18 +771,197 @@ footer {
                 <p class="notice">
                     Доступность заданий и размер награды могут зависеть
                     от региона, аккаунта и условий конкретного предложения.
-                    Всегда проверяй требования перед началом.
                 </p>
 
                 <p style="margin-top:16px">
                     <strong>📚 Хочешь узнать подробнее?</strong>
-                    В базе данных AdCoin ты можешь найти больше информации
-                    о заработке, заданиях, кланах и других возможностях
-                    приложения. Загляни туда, чтобы узнать всё подробнее!
+                    В базе данных AdCoin можно найти информацию о заработке,
+                    заданиях, кланах и других возможностях приложения.
                 </p>
             </div>
         </div>
 
+        <!-- ВАЛЮТЫ БАЛАНСА -->
+        <div class="card">
+            <h2>💱 В какой валюте можно смотреть баланс AdCoin?</h2>
+            <p>
+                В AdCoin баланс можно смотреть в разных валютах и апельсинах 🍊.
+                Вот список доступных вариантов отображения:
+            </p>
+
+            <div class="currency-grid">
+                <div class="currency-item">
+                    <div class="currency-icon">₽</div>
+                    <strong>Российский рубль</strong>
+                    <small>RUB · ₽</small>
+                </div>
+
+                <div class="currency-item">
+                    <div class="currency-icon">🍊</div>
+                    <strong>Апельсины</strong>
+                    <small>AdCoin · 🍊</small>
+                </div>
+
+                <div class="currency-item">
+                    <div class="currency-icon">$</div>
+                    <strong>Доллар США</strong>
+                    <small>USD · $</small>
+                </div>
+
+                <div class="currency-item">
+                    <div class="currency-icon">€</div>
+                    <strong>Евро</strong>
+                    <small>EUR · €</small>
+                </div>
+
+                <div class="currency-item">
+                    <div class="currency-icon">֏</div>
+                    <strong>Армянский драм</strong>
+                    <small>AMD · ֏</small>
+                </div>
+
+                <div class="currency-item">
+                    <div class="currency-icon">Br</div>
+                    <strong>Белорусский рубль</strong>
+                    <small>BYN · Br</small>
+                </div>
+
+                <div class="currency-item">
+                    <div class="currency-icon">₾</div>
+                    <strong>Грузинский лари</strong>
+                    <small>GEL · ₾</small>
+                </div>
+
+                <div class="currency-item">
+                    <div class="currency-icon">с</div>
+                    <strong>Киргизский сом</strong>
+                    <small>KGS · сом</small>
+                </div>
+
+                <div class="currency-item">
+                    <div class="currency-icon">₸</div>
+                    <strong>Казахский тенге</strong>
+                    <small>KZT · ₸</small>
+                </div>
+
+                <div class="currency-item">
+                    <div class="currency-icon">soʻm</div>
+                    <strong>Узбекский сум</strong>
+                    <small>UZS · soʻm</small>
+                </div>
+            </div>
+
+            <p class="notice">
+                Это список вариантов отображения валют. Фактический курс,
+                конвертация и доступность валют зависят от приложения.
+            </p>
+        </div>
+
+        <!-- СПОСОБЫ ВЫВОДА -->
+        <div class="card">
+            <h2>💸 Доступные способы вывода</h2>
+            <p>
+                Варианты вывода, которые могут быть доступны в AdCoin.
+                Возле каждого способа — отдельный значок для удобства.
+            </p>
+
+            <div class="withdraw-grid">
+                <div class="withdraw-item">
+                    <div class="app-avatar">🇷🇺</div>
+                    <div>
+                        <div class="app-name">Карты РФ</div>
+                        <div class="app-description">Банковские карты России</div>
+                    </div>
+                </div>
+
+                <div class="withdraw-item">
+                    <div class="app-avatar">📱</div>
+                    <div>
+                        <div class="app-name">Операторы +7</div>
+                        <div class="app-description">Мобильные номера +7</div>
+                    </div>
+                </div>
+
+                <div class="withdraw-item">
+                    <div class="app-avatar">🇰🇿</div>
+                    <div>
+                        <div class="app-name">Карты КЗ</div>
+                        <div class="app-description">Банковские карты Казахстана</div>
+                    </div>
+                </div>
+
+                <div class="withdraw-item">
+                    <div class="app-avatar">🟣</div>
+                    <div>
+                        <div class="app-name">ЮMoney</div>
+                        <div class="app-description">Электронный кошелёк</div>
+                    </div>
+                </div>
+
+                <div class="withdraw-item">
+                    <div class="app-avatar">💎</div>
+                    <div>
+                        <div class="app-name">GRAM (TON)</div>
+                        <div class="app-description">Криптовалютный вариант</div>
+                    </div>
+                </div>
+
+                <div class="withdraw-item">
+                    <div class="app-avatar">⭐</div>
+                    <div>
+                        <div class="app-name">Telegram Stars</div>
+                        <div class="app-description">Звёзды Telegram</div>
+                    </div>
+                </div>
+
+                <div class="withdraw-item">
+                    <div class="app-avatar">🎮</div>
+                    <div>
+                        <div class="app-name">Steam CLS</div>
+                        <div class="app-description">Вариант вывода Steam</div>
+                    </div>
+                </div>
+
+                <div class="withdraw-item">
+                    <div class="app-avatar">📶</div>
+                    <div>
+                        <div class="app-name">Beeline KZ</div>
+                        <div class="app-description">Мобильный оператор Казахстана</div>
+                    </div>
+                </div>
+
+                <div class="withdraw-item">
+                    <div class="app-avatar">📲</div>
+                    <div>
+                        <div class="app-name">Beeline UZ</div>
+                        <div class="app-description">Мобильный оператор Узбекистана</div>
+                    </div>
+                </div>
+
+                <div class="withdraw-item">
+                    <div class="app-avatar">📡</div>
+                    <div>
+                        <div class="app-name">Azercell</div>
+                        <div class="app-description">Мобильный оператор Азербайджана</div>
+                    </div>
+                </div>
+
+                <div class="withdraw-item">
+                    <div class="app-avatar">⚡</div>
+                    <div>
+                        <div class="app-name">СБП</div>
+                        <div class="app-description">Система быстрых платежей</div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="notice">
+                Перед выводом проверь доступность способа, минимальную сумму,
+                комиссию и условия в своём аккаунте AdCoin.
+            </p>
+        </div>
+
+        <!-- ГДЕ НАЙТИ ADCOIN -->
         <div class="card">
             <h2>📲 Где найти AdCoin?</h2>
             <p>
@@ -679,9 +970,9 @@ footer {
             </p>
 
             <div class="store-list">
-                <span class="store-chip">Google Play</span>
-                <span class="store-chip">RuStore</span>
-                <span class="store-chip">App Store</span>
+                <span class="store-chip">▶️ Google Play</span>
+                <span class="store-chip">📱 RuStore</span>
+                <span class="store-chip">🍎 App Store</span>
             </div>
 
             <p class="notice">
@@ -825,7 +1116,6 @@ const toggleIcon = document.getElementById("toggleIcon");
 
 adcoinToggle.addEventListener("click", () => {
     const isOpen = adcoinDetails.classList.toggle("open");
-
     adcoinToggle.setAttribute("aria-expanded", String(isOpen));
     toggleIcon.textContent = isOpen ? "−" : "＋";
 });
@@ -856,10 +1146,10 @@ function resizeCanvas() {
     snowflakes = Array.from({ length: amount }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
-        radius: Math.random() * 2.5 + 0.6,
-        speed: Math.random() * 1.1 + 0.3,
-        drift: Math.random() * 0.7 - 0.35,
-        opacity: Math.random() * 0.6 + 0.2
+        radius: Math.random() * 2.5 + .6,
+        speed: Math.random() * 1.1 + .3,
+        drift: Math.random() * .7 - .35,
+        opacity: Math.random() * .6 + .2
     }));
 }
 
@@ -894,3 +1184,4 @@ drawSnow();
 </script>
 </body>
 </html>
+
