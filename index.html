@@ -1,954 +1,896 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>WINTER | KWISTIX</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>My AdCoin Journey 🍊</title>
 
 <style>
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-html, body {
-    min-height: 100%;
+:root {
+    --glass: rgba(255, 255, 255, 0.12);
+    --glass-border: rgba(255, 255, 255, 0.22);
+    --text: #ffffff;
+    --muted: #dce8ff;
+    --accent: #ffb347;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    color: white;
-    overflow-x: hidden;
-
-    background:
-        radial-gradient(circle at 50% 0%, rgba(37, 105, 113, 0.55), transparent 35%),
-        radial-gradient(circle at 10% 90%, rgba(0, 80, 65, 0.45), transparent 35%),
-        linear-gradient(180deg, #071d2b 0%, #092c35 45%, #06181f 100%);
-
     min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: linear-gradient(135deg, #07162e, #123b69, #432c70);
+    background-size: 250% 250%;
+    animation: backgroundMove 16s ease infinite;
+    overflow-x: hidden;
 }
 
-/* ===== ФОН ===== */
+@keyframes backgroundMove {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
 
-body::before {
-    content: "";
+#snow {
     position: fixed;
     inset: 0;
-
-    background:
-        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05), transparent 18%),
-        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.04), transparent 20%);
-
+    width: 100%;
+    height: 100%;
     pointer-events: none;
-}
-
-/* ===== ЁЛКИ ===== */
-
-.tree {
-    position: fixed;
-    bottom: -20px;
-    width: 0;
-    height: 0;
-
-    border-left: 90px solid transparent;
-    border-right: 90px solid transparent;
-    border-bottom: 170px solid rgba(2, 40, 35, 0.65);
-
-    filter: blur(1px);
     z-index: 0;
 }
 
-.tree::before {
-    content: "";
-    position: absolute;
-
-    left: -75px;
-    bottom: 100px;
-
-    width: 0;
-    height: 0;
-
-    border-left: 75px solid transparent;
-    border-right: 75px solid transparent;
-    border-bottom: 140px solid rgba(2, 50, 42, 0.7);
-}
-
-.tree::after {
-    content: "";
-    position: absolute;
-
-    left: -60px;
-    bottom: 190px;
-
-    width: 0;
-    height: 0;
-
-    border-left: 60px solid transparent;
-    border-right: 60px solid transparent;
-    border-bottom: 110px solid rgba(3, 57, 47, 0.7);
-}
-
-.tree.left {
-    left: -50px;
-    transform: scale(1.25);
-}
-
-.tree.right {
-    right: -50px;
-    transform: scale(1.1);
-}
-
-/* ===== КОНТЕЙНЕР ===== */
-
-.container {
+header, main, footer {
     position: relative;
-    z-index: 5;
-
-    width: min(920px, calc(100% - 30px));
-    margin: 0 auto;
-
-    padding: 55px 0 80px;
-
-    text-align: center;
+    z-index: 1;
 }
 
-/* ===== СНЕЖИНКА ===== */
-
-.top-snowflake {
-    font-size: 42px;
-    margin-bottom: 5px;
-
-    animation:
-        rotateSnow 7s linear infinite,
-        snowGlow 2s ease-in-out infinite alternate;
-
-    text-shadow:
-        0 0 10px rgba(255,255,255,0.8),
-        0 0 25px rgba(125,230,255,0.8);
-}
-
-@keyframes rotateSnow {
-
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-
-}
-
-@keyframes snowGlow {
-
-    from {
-        opacity: 0.65;
-    }
-
-    to {
-        opacity: 1;
-    }
-
-}
-
-/* ===== WINTER ===== */
-
-.logo {
-    font-size: clamp(58px, 12vw, 110px);
-
-    font-weight: 800;
-    letter-spacing: 5px;
-
-    color: #8deaff;
-
-    text-shadow:
-        0 0 5px #69ddff,
-        0 0 15px rgba(105,221,255,0.8),
-        0 0 35px rgba(105,221,255,0.55),
-        0 0 70px rgba(105,221,255,0.3);
-
-    animation:
-        logoGlow 2.5s ease-in-out infinite alternate;
-}
-
-@keyframes logoGlow {
-
-    from {
-        transform: scale(1);
-        filter: brightness(0.9);
-    }
-
-    to {
-        transform: scale(1.025);
-        filter: brightness(1.2);
-    }
-
-}
-
-/* ===== KWISTIX ===== */
-
-.subtitle {
-    margin-top: 5px;
-
-    font-family: 'Caveat', cursive;
-    font-size: clamp(28px, 5vw, 38px);
-
-    color: rgba(255,255,255,0.95);
-
-    text-shadow:
-        0 0 10px rgba(255,255,255,0.25);
-}
-
-/* ===== ОПИСАНИЕ ===== */
-
-.description {
-    max-width: 700px;
-
-    margin: 20px auto 30px;
-
-    font-size: 15px;
-    line-height: 1.7;
-
-    color: rgba(255,255,255,0.78);
-}
-
-/* ===== КАРТОЧКА ===== */
-
-.pc-card {
-    position: relative;
-
-    max-width: 700px;
-
-    margin: 0 auto 30px;
-
-    padding: 25px;
-
-    border-radius: 25px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.09),
-            rgba(255,255,255,0.025)
-        );
-
-    border: 1px solid rgba(255,255,255,0.13);
-
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,0.35),
-        inset 0 1px 0 rgba(255,255,255,0.08);
-}
-
-.card-title {
-    font-size: 24px;
-    font-weight: 700;
-
-    margin-bottom: 18px;
-
-    color: #ffffff;
-}
-
-/* ===== КОМПЛЕКТУЮЩИЕ ===== */
-
-.component {
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    gap: 15px;
-
-    padding: 14px 15px;
-
-    margin-bottom: 9px;
-
-    border-radius: 14px;
-
-    background: rgba(0,0,0,0.18);
-
-    border: 1px solid rgba(255,255,255,0.05);
-
-    transition: 0.25s ease;
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
 }
 
-.component:hover {
-    transform: translateX(4px);
-
-    background: rgba(255,255,255,0.07);
-
-    border-color: rgba(255,255,255,0.12);
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
 }
 
-.component-info {
-    display: flex;
+.menu-button {
+    width: 46px;
+    height: 46px;
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    color: white;
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.menu-button:hover {
+    background: rgba(255,255,255,0.22);
+    transform: scale(1.04);
+}
+
+nav {
+    display: none;
     flex-direction: column;
-
-    align-items: flex-start;
-
-    text-align: left;
+    gap: 8px;
+    max-width: 860px;
+    margin: 0 auto 15px;
+    padding: 0 20px;
 }
 
-.component-name {
-    font-weight: 600;
+nav.open {
+    display: flex;
+}
+
+nav button {
+    padding: 14px 16px;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: left;
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.10);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+nav button:hover,
+nav button.active {
+    background: rgba(255,255,255,0.23);
+    border-color: rgba(255,255,255,0.45);
+}
+
+main {
+    width: min(860px, calc(100% - 32px));
+    margin: 10px auto 45px;
+}
+
+.tab {
+    display: none;
+    animation: appear 0.4s ease;
+}
+
+.tab.active {
+    display: block;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+    padding: 24px;
+    margin-bottom: 17px;
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    background: var(--glass);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.13);
+    backdrop-filter: blur(18px);
+}
+
+.hero {
+    text-align: center;
+    padding: 34px 24px;
+}
+
+h1 {
+    font-size: clamp(25px, 5vw, 38px);
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+h2 {
+    font-size: 23px;
+    margin-bottom: 14px;
+}
+
+h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+.subtitle {
+    margin-top: 8px;
     font-size: 15px;
 }
 
-.component-model {
-    margin-top: 3px;
-
-    font-size: 12px;
-
-    color: rgba(255,255,255,0.5);
-}
-
-.status {
-    min-width: 30px;
-    height: 30px;
-
+.profile {
     display: flex;
     align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    font-size: 17px;
-    font-weight: 800;
-}
-
-.bought {
-    background: rgba(50,255,145,0.13);
-
-    color: #45ff9a;
-
-    box-shadow:
-        0 0 15px rgba(50,255,145,0.2);
-}
-
-.not-bought {
-    background: rgba(255,75,75,0.12);
-
-    color: #ff6868;
-
-    box-shadow:
-        0 0 15px rgba(255,75,75,0.15);
-}
-
-/* ===== СОЦСЕТИ ===== */
-
-.socials {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
     gap: 16px;
-
-    margin-top: 25px;
 }
 
-.social-btn {
-    width: 58px;
-    height: 58px;
+.avatar {
+    width: 76px;
+    height: 76px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 23px;
+    background: linear-gradient(135deg, #ffcf76, #ff8738);
+    font-size: 42px;
+    box-shadow: 0 8px 25px rgba(255,145,45,0.25);
+}
 
+.profile-info p {
+    font-size: 14px;
+}
+
+.profile-info strong {
+    color: white;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.stat {
+    padding: 18px;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 18px;
+    background: rgba(0,0,0,0.10);
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #d2def6;
+    margin-bottom: 9px;
+}
+
+.stat-value {
+    font-size: clamp(17px, 3vw, 23px);
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.orange {
+    color: #ffc16b;
+}
+
+.code-row {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.ref-code {
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #ffd18d;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-
-    border-radius: 18px;
-
+    gap: 8px;
+    min-height: 44px;
+    padding: 12px 17px;
+    color: #1a2740;
+    font-weight: 800;
+    font-size: 14px;
     text-decoration: none;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #ffda96, #ffad50);
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
+}
 
-    background:
-        rgba(255,255,255,0.07);
+.button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+}
 
-    border: 1px solid rgba(255,255,255,0.13);
-
+.button.secondary {
     color: white;
-
-    backdrop-filter: blur(10px);
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        box-shadow 0.25s ease;
+    border: 1px solid var(--glass-border);
+    background: rgba(255,255,255,0.12);
 }
 
-.social-btn:hover {
-    transform: translateY(-5px) scale(1.05);
-
-    background:
-        rgba(255,255,255,0.12);
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.3);
+.progress-track {
+    height: 14px;
+    margin: 16px 0 10px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: rgba(0,0,0,0.23);
+    border: 1px solid rgba(255,255,255,0.10);
 }
 
-/* ===== TELEGRAM ===== */
+.progress-fill {
+    height: 100%;
+    width: 0.37%;
+    min-width: 5px;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #ff9e40, #ffe0a3);
+    box-shadow: 0 0 14px rgba(255,177,77,0.5);
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.notice {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #c5d5f4;
+}
+
+.telegram-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
 
 .telegram-icon {
-    width: 30px;
-    height: 30px;
-
-    fill: #55cfff;
-
-    filter:
-        drop-shadow(0 0 7px rgba(85,207,255,0.55));
+    font-size: 36px;
+    flex-shrink: 0;
 }
 
-/* ===== DONATIONALERTS ===== */
-
-.da-icon {
-    font-size: 20px;
-
-    font-weight: 800;
-
-    color: #65ff9b;
-
-    text-shadow:
-        0 0 10px rgba(101,255,155,0.6);
+.telegram-content {
+    flex: 1;
 }
 
-/* ===== FOOTER ===== */
-
-.footer-text {
-    margin-top: 25px;
-
-    font-size: 12px;
-
-    color: rgba(255,255,255,0.4);
+.telegram-content p {
+    font-size: 14px;
+    margin-top: 4px;
 }
 
-/* ===== СНЕГ ===== */
-
-.snowflake {
-    position: fixed;
-
-    top: -20px;
-
-    z-index: 10;
-
-    pointer-events: none;
-
+.details-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
     color: white;
-
-    user-select: none;
-
-    text-shadow:
-        0 0 5px rgba(255,255,255,0.8),
-        0 0 10px rgba(170,230,255,0.4);
-
-    animation-name: fall;
-
-    animation-timing-function: linear;
-
-    animation-iteration-count: 1;
+    text-align: left;
+    border: 0;
+    background: transparent;
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
 }
 
-@keyframes fall {
-
-    0% {
-        transform:
-            translate3d(0, -20px, 0)
-            rotate(0deg);
-    }
-
-    100% {
-        transform:
-            translate3d(var(--drift), 110vh, 0)
-            rotate(360deg);
-    }
-
+.details-toggle span:last-child {
+    color: #ffd18d;
+    font-size: 23px;
 }
 
-/* ===== ТУМАН ===== */
-
-.ground {
-    position: fixed;
-
-    left: -10%;
-    right: -10%;
-    bottom: -100px;
-
-    height: 220px;
-
-    z-index: 2;
-
-    background:
-        radial-gradient(
-            ellipse at center,
-            rgba(180,255,239,0.12),
-            transparent 70%
-        );
-
-    filter: blur(20px);
-
-    pointer-events: none;
+.details-content {
+    display: none;
+    padding-top: 17px;
 }
 
-/* ===== ТЕЛЕФОН ===== */
+.details-content.open {
+    display: block;
+    animation: appear 0.3s ease;
+}
 
-@media (max-width: 600px) {
+.details-content p + p {
+    margin-top: 12px;
+}
 
-    .container {
-        width: min(100% - 20px, 920px);
+.earning-list {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+    margin: 18px 0;
+}
 
-        padding-top: 35px;
+.earning-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 15px;
+    background: rgba(0,0,0,0.10);
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.earning-list .method-icon {
+    font-size: 23px;
+    flex-shrink: 0;
+}
+
+.earning-list strong {
+    color: white;
+}
+
+.store-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 13px;
+}
+
+.store-chip {
+    display: inline-block;
+    padding: 9px 12px;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.08);
+    font-size: 13px;
+    color: white;
+}
+
+.support-emoji {
+    font-size: 48px;
+    margin-bottom: 14px;
+}
+
+.support-card {
+    text-align: center;
+    padding: 32px 24px;
+}
+
+.support-card p {
+    max-width: 590px;
+    margin: 0 auto 14px;
+}
+
+.username {
+    display: inline-block;
+    margin: 8px 0 20px;
+    color: #ffd18d;
+    font-size: 21px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.username:hover {
+    text-decoration: underline;
+}
+
+footer {
+    padding: 0 20px 25px;
+    text-align: center;
+    font-size: 12px;
+    color: #c5d5f4;
+}
+
+@media (max-width: 520px) {
+    header {
+        padding: 15px 16px;
     }
 
-    .logo {
-        letter-spacing: 2px;
+    main {
+        width: calc(100% - 24px);
+        margin-top: 8px;
     }
 
-    .pc-card {
-        padding: 16px;
-
+    .card {
+        padding: 19px;
         border-radius: 20px;
     }
 
-    .component {
-        padding: 12px;
+    .hero {
+        padding: 27px 18px;
     }
 
-    .component-name {
-        font-size: 14px;
+    .profile {
+        align-items: flex-start;
     }
 
-    .component-model {
-        font-size: 11px;
+    .avatar {
+        width: 62px;
+        height: 62px;
+        border-radius: 19px;
+        font-size: 34px;
     }
 
-    .social-btn {
-        width: 54px;
-        height: 54px;
+    .stat-grid {
+        gap: 9px;
     }
 
-    .description {
-        font-size: 14px;
+    .stat {
+        padding: 14px;
     }
 
-    .tree.left {
-        left: -120px;
-        opacity: 0.7;
+    .code-row {
+        align-items: flex-start;
+        flex-direction: column;
     }
 
-    .tree.right {
-        right: -120px;
-        opacity: 0.7;
+    .telegram-card {
+        align-items: flex-start;
+        flex-wrap: wrap;
     }
 
+    .telegram-card .button {
+        width: 100%;
+    }
 }
-
-/* ===== МАЛЕНЬКИЕ ЭКРАНЫ ===== */
-
-@media (max-width: 380px) {
-
-    .component {
-        gap: 8px;
-    }
-
-    .component-name {
-        font-size: 13px;
-    }
-
-    .component-model {
-        font-size: 10px;
-    }
-
-    .status {
-        min-width: 27px;
-        height: 27px;
-
-        font-size: 15px;
-    }
-
-}
-
 </style>
 </head>
 
 <body>
+<canvas id="snow"></canvas>
 
-<!-- ЁЛКИ -->
-<div class="tree left"></div>
-<div class="tree right"></div>
+<header>
+    <div class="logo">🍊 My AdCoin Journey</div>
+    <button class="menu-button" id="menuButton"
+        aria-label="Открыть меню"
+        aria-expanded="false">☰</button>
+</header>
 
-<!-- ТУМАН -->
-<div class="ground"></div>
+<nav id="navigation">
+    <button class="active" data-tab="home">🏠 Главная</button>
+    <button data-tab="earning">🍊 О заработке</button>
+    <button data-tab="support">🎁 Поддержи меня</button>
+</nav>
 
-<div class="container">
-
-    <!-- СНЕЖИНКА -->
-    <div class="top-snowflake">❄</div>
-
-    <!-- НАЗВАНИЕ -->
-    <div class="logo">
-        WINTER
-    </div>
-
-    <div class="subtitle">
-        KWISTIX
-    </div>
-
-    <!-- ОПИСАНИЕ -->
-    <div class="description">
-        Всем охае! ❄️<br>
-        Собираю свой игровой ПК и буду постепенно показывать процесс.
-        Поддержать сборку можно через донат.
-    </div>
-
-    <!-- КОМПЬЮТЕР -->
-    <div class="pc-card">
-
-        <div class="card-title">
-            💻 Моя сборка ПК
+<main>
+    <!-- ГЛАВНАЯ -->
+    <section class="tab active" id="home">
+        <div class="card hero">
+            <h1>𝐼’𝑚 𝑒𝑎𝑟𝑛𝑖𝑛𝑔 𝑤𝑖𝑡ℎ 𝑎𝑑𝑐𝑜𝑖𝑛.</h1>
+            <p class="subtitle">
+                Мой путь к цели начинается с маленьких шагов 🍊
+            </p>
         </div>
 
-        <!-- RTX 5050 -->
-        <div class="component">
-
-            <div class="component-info">
-
-                <div class="component-name">
-                    Видеокарта
+        <div class="card">
+            <div class="profile">
+                <div class="avatar">🍊</div>
+                <div class="profile-info">
+                    <h2>AdCoin</h2>
+                    <p>Clan owner: <strong>slippery</strong></p>
+                    <p>🏆 Trophies: <strong>12.5k</strong></p>
                 </div>
-
-                <div class="component-model">
-                    RTX 5050
-                </div>
-
             </div>
-
-            <div class="status bought">
-                ✓
-            </div>
-
         </div>
 
-        <!-- 512 GB -->
-        <div class="component">
-
-            <div class="component-info">
-
-                <div class="component-name">
-                    Накопитель
-                </div>
-
-                <div class="component-model">
-                    512 ГБ
-                </div>
-
+        <div class="card">
+            <h3>🔗 Мой реферальный код</h3>
+            <p>Используй мой код, если хочешь присоединиться!</p>
+            <div class="code-row">
+                <span class="ref-code" id="refCode">ww5Pb</span>
+                <button class="button" id="copyButton">📋 Копировать код</button>
             </div>
-
-            <div class="status bought">
-                ✓
-            </div>
-
+            <p class="notice" id="copyMessage" aria-live="polite"></p>
         </div>
 
-        <!-- RAM -->
-        <div class="component">
-
-            <div class="component-info">
-
-                <div class="component-name">
-                    Оперативная память
+        <div class="card">
+            <h3>🍊 Мои накопления</h3>
+            <div class="stat-grid">
+                <div class="stat">
+                    <div class="stat-label">Уже накоплено</div>
+                    <div class="stat-value orange">8 728 🍊</div>
                 </div>
-
-                <div class="component-model">
-                    DDR4 16 ГБ
+                <div class="stat">
+                    <div class="stat-label">Цель накоплений</div>
+                    <div class="stat-value">2 375 000 🍊</div>
                 </div>
-
             </div>
 
-            <div class="status not-bought">
-                ✕
+            <div style="margin-top:22px">
+                <h3>🎯 Моя цель — POCO F9 Ultra</h3>
+                <div class="progress-track">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="progress-info">
+                    <span>Прогресс</span>
+                    <strong>0.37%</strong>
+                </div>
+                <p class="notice">
+                    Данные обновляются каждый месяц 1-го числа.
+                </p>
             </div>
-
         </div>
 
-        <!-- CPU -->
-        <div class="component">
-
-            <div class="component-info">
-
-                <div class="component-name">
-                    Процессор
-                </div>
-
-                <div class="component-model">
-                    Ryzen 5 5600
-                </div>
-
+        <!-- TELEGRAM-КАНАЛ В ПЕРВОЙ ВКЛАДКЕ -->
+        <div class="card telegram-card">
+            <div class="telegram-icon">✈️</div>
+            <div class="telegram-content">
+                <h3>Slippery Clan</h3>
+                <p>Мой Telegram-канал — подписывайся и следи за новостями!</p>
             </div>
+            <a class="button"
+               href="https://t.me/slipperyclan"
+               target="_blank"
+               rel="noopener noreferrer">
+                Открыть мой ТГК ↗
+            </a>
+        </div>
+    </section>
 
-            <div class="status not-bought">
-                ✕
-            </div>
-
+    <!-- О ЗАРАБОТКЕ -->
+    <section class="tab" id="earning">
+        <div class="card hero">
+            <h1>🍊 О заработке в AdCoin</h1>
+            <p>
+                Узнай больше о приложении и возможностях заработка.
+            </p>
         </div>
 
-        <!-- MOTHERBOARD -->
-        <div class="component">
+        <div class="card">
+            <button class="details-toggle" id="adcoinToggle"
+                aria-expanded="false" aria-controls="adcoinDetails">
+                <span>🍊 Как заработать в AdCoin?</span>
+                <span id="toggleIcon">＋</span>
+            </button>
 
-            <div class="component-info">
+            <div class="details-content" id="adcoinDetails">
+                <p>
+                    В AdCoin можно зарабатывать монеты разными способами:
+                    просматривать рекламу, выполнять задания, проходить
+                    опросы и участвовать в предложениях партнёрских платформ.
+                </p>
 
-                <div class="component-name">
-                    Материнская плата
-                </div>
+                <ul class="earning-list">
+                    <li>
+                        <span class="method-icon">📺</span>
+                        <div>
+                            <strong>Просмотр рекламы</strong>
+                            <p>
+                                Зарабатывай монеты, просматривая доступную
+                                рекламу в приложении.
+                            </p>
+                        </div>
+                    </li>
 
-                <div class="component-model">
-                    Уже куплена
-                </div>
+                    <li>
+                        <span class="method-icon">📝</span>
+                        <div>
+                            <strong>Задания в Smoozy и MegaSEO</strong>
+                            <p>
+                                Выполняй доступные задания на этих платформах
+                                и получай награды согласно условиям.
+                            </p>
+                        </div>
+                    </li>
 
+                    <li>
+                        <span class="method-icon">📊</span>
+                        <div>
+                            <strong>Опросы: BitLabs, CRX, Ayet и OpUniverse</strong>
+                            <p>
+                                Проходи доступные опросы и получай
+                                вознаграждение за успешно завершённые задания.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="method-icon">🎮</span>
+                        <div>
+                            <strong>Игры и приложения: Torox и PubScale</strong>
+                            <p>
+                                Скачивай предложенные игры, играй и выполняй
+                                условия заданий, чтобы получить награду.
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+
+                <p class="notice">
+                    Доступность заданий и размер награды могут зависеть
+                    от региона, аккаунта и условий конкретного предложения.
+                    Всегда проверяй требования перед началом.
+                </p>
+
+                <p style="margin-top:16px">
+                    <strong>📚 Хочешь узнать подробнее?</strong>
+                    В базе данных AdCoin ты можешь найти больше информации
+                    о заработке, заданиях, кланах и других возможностях
+                    приложения. Загляни туда, чтобы узнать всё подробнее!
+                </p>
             </div>
-
-            <div class="status bought">
-                ✓
-            </div>
-
         </div>
 
-        <!-- MONITOR -->
-        <div class="component">
+        <div class="card">
+            <h2>📲 Где найти AdCoin?</h2>
+            <p>
+                Ищи приложение в магазинах приложений и следи за новостями
+                в официальном Telegram-канале.
+            </p>
 
-            <div class="component-info">
-
-                <div class="component-name">
-                    Монитор
-                </div>
-
-                <div class="component-model">
-                    Ещё не куплен
-                </div>
-
+            <div class="store-list">
+                <span class="store-chip">Google Play</span>
+                <span class="store-chip">RuStore</span>
+                <span class="store-chip">App Store</span>
             </div>
 
-            <div class="status not-bought">
-                ✕
-            </div>
+            <p class="notice">
+                Доступность приложения зависит от региона.
+                Перед установкой проверяй разработчика и ссылку.
+            </p>
 
+            <div style="margin-top:18px">
+                <a class="button"
+                   href="https://t.me/adcoinapp"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    ✈️ Официальный канал AdCoin ↗
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПОДДЕРЖКА -->
+    <section class="tab" id="support">
+        <div class="card hero">
+            <div class="support-emoji">🎁</div>
+            <h1>Поддержи меня</h1>
+            <p>
+                Тебе понравился мой сайт? Тогда ты можешь поддержать меня
+                подарком в Telegram!
+            </p>
         </div>
 
-        <!-- PSU -->
-        <div class="component">
+        <div class="card support-card">
+            <div class="support-emoji">💙</div>
+            <h2>Спасибо за поддержку!</h2>
 
-            <div class="component-info">
+            <p>
+                Я старался сделать этот сайт красивым и удобным,
+                чтобы ты мог следить за моим путём в AdCoin
+                и накоплениями на мечту.
+            </p>
 
-                <div class="component-name">
-                    Блок питания
-                </div>
+            <p>
+                Если тебе понравилась моя работа и ты хочешь меня поддержать,
+                можешь отправить мне подарок в Telegram. 🎁
+            </p>
 
-                <div class="component-model">
-                    Ещё не куплен
-                </div>
+            <a class="username"
+               href="https://t.me/tropic_tg"
+               target="_blank"
+               rel="noopener noreferrer">
+                @tropic_tg
+            </a>
 
+            <div>
+                <a class="button"
+                   href="https://t.me/tropic_tg"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    🎁 Поддержать в Telegram ↗
+                </a>
             </div>
 
-            <div class="status not-bought">
-                ✕
-            </div>
-
+            <p class="notice" style="margin-top:18px">
+                Поддержка полностью добровольная. Даже если ты просто
+                посетил сайт — спасибо тебе! ❤️
+            </p>
         </div>
+    </section>
+</main>
 
-        <!-- CASE -->
-        <div class="component">
-
-            <div class="component-info">
-
-                <div class="component-name">
-                    Корпус
-                </div>
-
-                <div class="component-model">
-                    Уже куплен
-                </div>
-
-            </div>
-
-            <div class="status bought">
-                ✓
-            </div>
-
-        </div>
-
-        <!-- COOLERS -->
-        <div class="component">
-
-            <div class="component-info">
-
-                <div class="component-name">
-                    Кулеры
-                </div>
-
-                <div class="component-model">
-                    Ещё не куплены
-                </div>
-
-            </div>
-
-            <div class="status not-bought">
-                ✕
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- СОЦСЕТИ -->
-    <div class="socials">
-
-        <!-- TELEGRAM -->
-        <a
-            class="social-btn"
-            href="https://t.me/grav1tat1ons"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Telegram"
-        >
-
-            <svg
-                class="telegram-icon"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-
-                <path d="M21.9 3.1c.3-1.1-.4-1.6-1.4-1.2L2.8 8.8c-1.1.4-1.1 1.1-.2 1.4l4.5 1.4 1.7 5.4c.2.6.1.9.7.9.5 0 .7-.2 1-.5.3-.3 1.1-1.1 2.2-2.1l4.5 3.3c.8.4 1.4.2 1.6-.8l3-14.2c.2-.7.3-1.1.9-1.5zM8.1 11.2l9.8-6.2c.5-.3 1-.1.6.2l-8.1 7.3-.3 3.2-1.3 3.2-1.3-4.5-.7-.2z"/>
-
-            </svg>
-
-        </a>
-
-        <!-- DONATIONALERTS -->
-        <a
-            class="social-btn"
-            href="https://www.donationalerts.com/r/snegoviik1"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="DonationAlerts"
-        >
-
-            <span class="da-icon">
-                DA
-            </span>
-
-        </a>
-
-    </div>
-
-    <div class="footer-text">
-        Спасибо за поддержку ❤️
-    </div>
-
-</div>
-
+<footer>
+    Сделано с ❤️ и 🍊 · My AdCoin Journey
+</footer>
 
 <script>
+/* Переключение меню */
+const menuButton = document.getElementById("menuButton");
+const navigation = document.getElementById("navigation");
+const navButtons = document.querySelectorAll("nav button");
+const tabs = document.querySelectorAll(".tab");
 
-/* =========================================
-   ПАДАЮЩИЙ СНЕГ
-========================================= */
+menuButton.addEventListener("click", () => {
+    const isOpen = navigation.classList.toggle("open");
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+    menuButton.textContent = isOpen ? "✕" : "☰";
+});
 
-function createSnowflake() {
+navButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const target = button.dataset.tab;
 
-    const snowflake =
-        document.createElement('div');
+        navButtons.forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
 
-    snowflake.className =
-        'snowflake';
+        tabs.forEach(tab => {
+            tab.classList.toggle("active", tab.id === target);
+        });
 
-    const symbols = [
-        '❄',
-        '❅',
-        '❆',
-        '•'
-    ];
+        navigation.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.textContent = "☰";
 
-    snowflake.textContent =
-        symbols[
-            Math.floor(
-                Math.random() * symbols.length
-            )
-        ];
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+});
 
-    const size =
-        Math.random() * 15 + 8;
+/* Копирование реферального кода */
+const copyButton = document.getElementById("copyButton");
+const refCode = document.getElementById("refCode");
+const copyMessage = document.getElementById("copyMessage");
 
-    const left =
-        Math.random() * 100;
+copyButton.addEventListener("click", async () => {
+    const code = refCode.textContent.trim();
 
-    const duration =
-        Math.random() * 8 + 7;
+    try {
+        await navigator.clipboard.writeText(code);
+        copyMessage.textContent = "✅ Код скопирован!";
+    } catch (error) {
+        const temp = document.createElement("textarea");
+        temp.value = code;
+        temp.style.position = "fixed";
+        temp.style.opacity = "0";
+        document.body.appendChild(temp);
+        temp.select();
 
-    const delay =
-        Math.random() * 3;
+        const copied = document.execCommand("copy");
+        temp.remove();
 
-    const opacity =
-        Math.random() * 0.65 + 0.25;
-
-    const drift =
-        (Math.random() * 180 - 90) + 'px';
-
-    snowflake.style.left =
-        left + 'vw';
-
-    snowflake.style.fontSize =
-        size + 'px';
-
-    snowflake.style.opacity =
-        opacity;
-
-    snowflake.style.animationDuration =
-        duration + 's';
-
-    snowflake.style.animationDelay =
-        delay + 's';
-
-    snowflake.style.setProperty(
-        '--drift',
-        drift
-    );
-
-    document.body.appendChild(
-        snowflake
-    );
+        copyMessage.textContent = copied
+            ? "✅ Код скопирован!"
+            : "Код для копирования: " + code;
+    }
 
     setTimeout(() => {
+        copyMessage.textContent = "";
+    }, 3000);
+});
 
-        snowflake.remove();
+/* Раскрытие информации об AdCoin */
+const adcoinToggle = document.getElementById("adcoinToggle");
+const adcoinDetails = document.getElementById("adcoinDetails");
+const toggleIcon = document.getElementById("toggleIcon");
 
-    }, (duration + delay) * 1000 + 500);
+adcoinToggle.addEventListener("click", () => {
+    const isOpen = adcoinDetails.classList.toggle("open");
 
+    adcoinToggle.setAttribute("aria-expanded", String(isOpen));
+    toggleIcon.textContent = isOpen ? "−" : "＋";
+});
+
+/* Анимированный снег */
+const canvas = document.getElementById("snow");
+const ctx = canvas.getContext("2d");
+
+let snowflakes = [];
+let width = 0;
+let height = 0;
+
+function resizeCanvas() {
+    const ratio = Math.min(window.devicePixelRatio || 1, 2);
+
+    width = window.innerWidth;
+    height = window.innerHeight;
+
+    canvas.width = width * ratio;
+    canvas.height = height * ratio;
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+    const amount = Math.min(120, Math.floor(width / 8));
+
+    snowflakes = Array.from({ length: amount }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: Math.random() * 2.5 + 0.6,
+        speed: Math.random() * 1.1 + 0.3,
+        drift: Math.random() * 0.7 - 0.35,
+        opacity: Math.random() * 0.6 + 0.2
+    }));
 }
 
+function drawSnow() {
+    ctx.clearRect(0, 0, width, height);
 
-/* Первоначальные снежинки */
+    for (const flake of snowflakes) {
+        ctx.beginPath();
+        ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${flake.opacity})`;
+        ctx.fill();
 
-for (let i = 0; i < 65; i++) {
+        flake.y += flake.speed;
+        flake.x += flake.drift;
 
-    createSnowflake();
+        if (flake.y > height + 5) {
+            flake.y = -5;
+            flake.x = Math.random() * width;
+        }
 
+        if (flake.x > width + 5) flake.x = -5;
+        if (flake.x < -5) flake.x = width + 5;
+    }
+
+    requestAnimationFrame(drawSnow);
 }
 
+window.addEventListener("resize", resizeCanvas);
 
-/* Новые снежинки */
-
-setInterval(() => {
-
-    createSnowflake();
-
-}, 250);
-
+resizeCanvas();
+drawSnow();
 </script>
-
 </body>
 </html>
-
